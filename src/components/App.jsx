@@ -8,6 +8,25 @@ import SingleProduct from "./SingleProduct";
 import CheckoutPage from "./CheckoutPage";
 
 const App = () => {
+  const [products, setProducts] = useState([]);
+  // to get all data
+  //useEffect takes 2 arguement one function and a dependency array
+
+  useEffect(() => {
+    const fetchAllProducts = async () => {
+      //calling getAllProducts which fetches all products
+      //waits to get all data then assigned result to products
+      const products = await getAllProducts();
+      // sets products to setProducts
+      setProducts(products);
+    };
+    fetchAllProducts();
+  }, []);
+
+  const [token, setToken] = useState(localStorage.getItem("token" || null));
+  //every time token changes will run this code
+  //if we have a token then store it in local storage
+  //otherwise remove token
   const [token, setToken] = useState(localStorage.getItem("token" || null));
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState(
