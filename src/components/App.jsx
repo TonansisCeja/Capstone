@@ -6,6 +6,9 @@ import AllProducts from "./AllProducts";
 import { getAllProducts } from "../API";
 import SingleProduct from "./SingleProduct";
 import CheckoutPage from "./CheckoutPage";
+import Cart from "./cart";
+import Categories from "./Categories";
+import CategoriesDropdown from "./CategoriesDropdown";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -27,8 +30,7 @@ const App = () => {
   //every time token changes will run this code
   //if we have a token then store it in local storage
   //otherwise remove token
-  const [token, setToken] = useState(localStorage.getItem("token" || null));
-  const [products, setProducts] = useState([]);
+
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart" || []))
   );
@@ -67,7 +69,7 @@ const App = () => {
       localStorage.removeItem("user");
       localStorage.removeItem("cart");
     }
-  }, [token]);
+  }, [token, cart, user]);
 
   console.log(products);
 
@@ -75,6 +77,7 @@ const App = () => {
     <div>
       <NavBar token={token} setToken={setToken} />{" "}
       {/* if there's a token then login else not logged in */}
+      <CategoriesDropdown />
       <Routes>
         {/**/}
         <Route
@@ -99,10 +102,16 @@ const App = () => {
         />
         <Route
           path="/cart"
-          element={<cart cart={cart} products={products} setCart={setCart} />}
+          element={<Cart cart={cart} products={products} setCart={setCart} />}
         />
 
         <Route path="/CheckoutPage" element={<CheckoutPage />} />
+        <Route
+          path="/Categories/:categoryItem"
+          element={
+            <Categories products={products} setCart={setCart} cart={cart} />
+          }
+        />
       </Routes>
     </div>
   );
