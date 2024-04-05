@@ -9,7 +9,7 @@ const CategoriesDropdown = () => {
     "all products",
     "electronics",
     "jewelery",
-    "mens's clothing",
+    "men's clothing",
     "women's clothing",
   ];
   const handleChange = (event) => {

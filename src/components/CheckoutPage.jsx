@@ -22,16 +22,15 @@ const CheckoutPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //handle form submisssion her, e.g. send data to server
+    //handle form submisssion here, e.g. send data to server
     console.log(formData);
   };
 
   return (
     <div className="checkout-page">
-      <h2>Checkout</h2>
-
       <form onSubmit={handleSubmit}>
         <input
+          id="fname"
           type="text"
           name="firstName"
           value={formData.firstName}
@@ -41,6 +40,7 @@ const CheckoutPage = () => {
         />
 
         <input
+          id="lname"
           type="text"
           name="lastName"
           value={formData.lastName}
@@ -50,6 +50,7 @@ const CheckoutPage = () => {
         />
 
         <input
+          id="Zp"
           type="text"
           name="zip"
           value={formData.zip}
@@ -59,6 +60,7 @@ const CheckoutPage = () => {
         />
 
         <input
+          id="Email"
           type="email"
           name="email"
           value={formData.email}
@@ -68,6 +70,7 @@ const CheckoutPage = () => {
         />
 
         <input
+          id="Adsress"
           type="text"
           name="address"
           value={formData.address}
@@ -77,6 +80,7 @@ const CheckoutPage = () => {
         />
 
         <input
+          id="Country"
           type="text"
           name="country"
           value={formData.country}
@@ -85,7 +89,15 @@ const CheckoutPage = () => {
           required
         />
 
-        <button type="submit"> Place Order</button>
+        <button
+          type="submit"
+          onClick={() => {
+            handleSubmit;
+          }}
+        >
+          {" "}
+          Place Order
+        </button>
       </form>
     </div>
   );

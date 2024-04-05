@@ -40,7 +40,11 @@ const Cart = ({ cart, products, setCart }) => {
   }, [cart, products]);
 
   const handleCheckout = () => {
-    <CheckoutPage />;
+    return (
+      <>
+        <CheckoutPage />
+      </>
+    );
   };
 
   return (
@@ -62,7 +66,8 @@ const Cart = ({ cart, products, setCart }) => {
         })}
         <p>Subtotal: {isNaN(subTotal) ? "$0:00" : `$${subTotal.toFixed(2)}`}</p>
         <hr></hr>
-        <button onClick={handleCheckout}>CHECK OUT</button>
+        <h2 className="checkout">CHECK OUT</h2>
+
         <CheckoutPage />
       </div>
     </>

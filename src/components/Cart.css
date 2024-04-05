@@ -29,6 +29,13 @@
     font-weight:bold;
 }
 
+.checkout{
+    background-color: rgb(6, 88, 203);
+    color:white;
+    width:100%;
+    text-align: center;
+}
+
 .card-button{
     display:flex;
     justify-content:space-between;
