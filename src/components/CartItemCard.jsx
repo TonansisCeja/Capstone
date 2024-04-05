@@ -1,30 +1,28 @@
 import React from "react";
 import "./CartItemCard.css";
+import {
+  addCartItem,
+  removeCartItem,
+  editCartItemQuantity,
+} from "../Utils/helpers";
 
-const CartItemCard = ({
-  cartItem,
-  quantity,
-  onIncrement,
-  onDecrement,
-  onEdit,
-}) => {
-  console.log("cartItem", { cartItem });
-
+const CartItemCard = ({ cartItem, quantity, cart, setCart, id }) => {
+  console.log(quantity, "quantity");
   const handleIncrement = () => {
-    onIncrement(cartItem.id);
+    setCart(addCartItem(cart, id));
   };
 
   const handleDecrement = () => {
-    onDecrement(cartItem.id);
+    setCart(removeCartItem(cart, id));
   };
 
   const handleQuantityChange = (event) => {
     const newQuantity = Number(event.target.value);
-    onEdit(cartItem.id, newQuantity);
+    setCart(editCartItemQuantity(cart, id, newQuantity));
   };
 
   return (
-    <div className="cart-item-card">
+    <div className="cart-card">
       <div className="cart-image-container">
         <img
           src={cartItem?.image}
@@ -40,9 +38,7 @@ const CartItemCard = ({
         <p> Quantity:{quantity}</p>
         <select value={quantity} onChange={handleQuantityChange}>
           {[...Array(30).keys()].map((index) => (
-            <option key={index} value={index + 1}>
-              {index + 1}
-            </option>
+            <option key={index}>{index + 1}</option>
           ))}
         </select>
       </div>

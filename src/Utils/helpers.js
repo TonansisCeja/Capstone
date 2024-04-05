@@ -1,4 +1,5 @@
 export const addCartItem = (cartItems, productId) => {
+  console.log(cartItems, productId, "cart, and id");
   //                        if the product already exists in the cart
   const existingCartItemIndex = cartItems.findIndex(
     (item) => item.productId === productId
@@ -7,10 +8,12 @@ export const addCartItem = (cartItems, productId) => {
   if (existingCartItemIndex !== -1) {
     //                      this "..." makes a copy of our existing cart
     const updatedCart = [...cartItems];
+    console.log(existingCartItemIndex, "existing cart iem index");
     //                       update the quantity
     updatedCart[existingCartItemIndex].quantity += 1;
     return updatedCart;
   } else {
+    console.log("did not find");
     //                      if the new product is not in the cart
     //                      add it with the quantity
     const newItem = { productId, quantity: 1 };
@@ -45,7 +48,8 @@ export const removeCartItem = (cartItems, productId) => {
         return item;
       }
     });
-    return updatedCart;
+
+    return updatedCart.filter((item) => item.quantity !== 0);
   } else if (
     //      if the product exist, but the quantity
     //      is 1 already we need to remove it

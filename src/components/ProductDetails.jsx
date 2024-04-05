@@ -14,7 +14,7 @@ const ProductDetails = ({ product, isSingle, cart, setCart }) => {
   const handleAddToCart = () => {
     const productId = product.id;
 
-    setCart((prevCart) => addCartItem(prevCart, productId));
+    setCart(addCartItem(cart, productId));
   };
 
   //              if the product already exists in the cart

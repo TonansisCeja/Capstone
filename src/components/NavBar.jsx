@@ -1,20 +1,30 @@
 import React from "react";
 import "./NavBar.css";
 import { Link, useNavigate } from "react-router-dom";
+import CategoriesDropdown from "./CategoriesDropdown";
 
 const NavBar = ({ token, setToken }) => {
   //create logout button. when clicked set to null
   const navigate = useNavigate();
+
   const handleLogout = () => {
     setToken(null);
 
     //navigate back to login path
     navigate("/login");
   };
+
+  const handleCheckout = () => {
+    navigate("/CheckoutPage");
+  };
+
   return (
     <nav className="navbar-container">
       <div>
         <h1>My Shop</h1>
+      </div>
+      <div className="DropDown">
+        <CategoriesDropdown className="DropDown" />
       </div>
       <div className="links">
         <Link className="nav-link" to="/">

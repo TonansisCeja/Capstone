@@ -33,3 +33,9 @@
     cursor: pointer;
     margin-left:20px;
 }
+
+.DropDown{
+    display:flex;
+    margin-left:auto;
+   
+}

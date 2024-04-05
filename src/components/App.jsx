@@ -8,7 +8,6 @@ import SingleProduct from "./SingleProduct";
 import CheckoutPage from "./CheckoutPage";
 import Cart from "./cart";
 import Categories from "./Categories";
-import CategoriesDropdown from "./CategoriesDropdown";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -71,13 +70,10 @@ const App = () => {
     }
   }, [token, cart, user]);
 
-  console.log(products);
-
   return (
     <div>
       <NavBar token={token} setToken={setToken} />{" "}
       {/* if there's a token then login else not logged in */}
-      <CategoriesDropdown />
       <Routes>
         {/**/}
         <Route
