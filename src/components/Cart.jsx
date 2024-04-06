@@ -39,13 +39,13 @@ const Cart = ({ cart, products, setCart }) => {
     setCartDetails(cartDetails);
   }, [cart, products]);
 
-  const handleCheckout = () => {
-    return (
-      <>
-        <CheckoutPage />
-      </>
-    );
-  };
+  // const handleCheckout = () => {
+  //   return (
+  //     <>
+  //       <CheckoutPage />
+  //     </>
+  //   );
+  // };
 
   return (
     <>

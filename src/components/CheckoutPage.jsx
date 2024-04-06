@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./CheckoutPage.css";
+import Cart from "./Cart";
 
-const CheckoutPage = () => {
+const CheckoutPage = ({ cart, setCart }) => {
+  console.log("cart", cart);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -12,6 +14,8 @@ const CheckoutPage = () => {
     country: "",
   });
 
+  // const [cart, setCart] = useState();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -20,9 +24,25 @@ const CheckoutPage = () => {
     });
   };
 
+  //  async function handleSubmit (event) {
+  //  event.preventDefault();
+  //  try{
+  //  const response = await fetch(" API",{
+  // method:"POST"
+  // })
+
+  //    )
+  // ;
+  //   }}
+  // console.log(formData);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     //handle form submisssion here, e.g. send data to server
+    console.log("this condition was hit");
+    console.log(`This is Cart before: ${Cart}`);
+    setCart(Cart, null);
+    console.log(`This is Cart after: ${Cart}`);
     console.log(formData);
   };
 
@@ -89,12 +109,7 @@ const CheckoutPage = () => {
           required
         />
 
-        <button
-          type="submit"
-          onClick={() => {
-            handleSubmit;
-          }}
-        >
+        <button type="submit" onClick={handleSubmit}>
           {" "}
           Place Order
         </button>

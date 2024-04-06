@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Login";
 import NavBar from "./NavBar";
@@ -6,7 +6,7 @@ import AllProducts from "./AllProducts";
 import { getAllProducts } from "../API";
 import SingleProduct from "./SingleProduct";
 import CheckoutPage from "./CheckoutPage";
-import Cart from "./cart";
+import Cart from "./Cart";
 import Categories from "./Categories";
 
 const App = () => {
@@ -101,7 +101,10 @@ const App = () => {
           element={<Cart cart={cart} products={products} setCart={setCart} />}
         />
 
-        <Route path="/CheckoutPage" element={<CheckoutPage />} />
+        <Route
+          path="/CheckoutPage"
+          element={<CheckoutPage setCart={setCart} />}
+        />
         <Route
           path="/Categories/:categoryItem"
           element={
