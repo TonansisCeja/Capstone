@@ -41,7 +41,7 @@ const CheckoutPage = ({ cart, setCart }) => {
     //handle form submisssion here, e.g. send data to server
     console.log("this condition was hit");
     console.log(`This is Cart before: ${Cart}`);
-    setCart(Cart, null);
+    setCart([]);
     console.log(`This is Cart after: ${Cart}`);
     console.log(formData);
   };

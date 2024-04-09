@@ -68,7 +68,7 @@ const Cart = ({ cart, products, setCart }) => {
         <hr></hr>
         <h2 className="checkout">CHECK OUT</h2>
 
-        <CheckoutPage />
+        <CheckoutPage cart={cart} setCart={setCart} />
       </div>
     </>
   );
