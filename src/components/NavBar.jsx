@@ -30,15 +30,16 @@ const NavBar = ({ token, setToken }) => {
         <Link className="nav-link" to="/">
           All Products
         </Link>
+
         {/* if there's a token(user logged in ) then display 
         logout button otherwise they should be able to log in page*/}
         {token ? (
           <>
             <Link className="nav-link" to="/cart">
-              cart
+              CART
             </Link>
             <button className="logOut-button" onClick={handleLogout}>
-              Log Out
+              LOG OUT
             </button>
           </>
         ) : (

@@ -14,6 +14,7 @@ const CheckoutPage = ({ cart, setCart }) => {
     country: "",
   });
 
+  const [checkout, setCheckout] = useState(false);
   // const [cart, setCart] = useState();
 
   const handleChange = (e) => {
@@ -40,80 +41,103 @@ const CheckoutPage = ({ cart, setCart }) => {
     e.preventDefault();
     //handle form submisssion here, e.g. send data to server
     console.log("this condition was hit");
-    console.log(`This is Cart before: ${Cart}`);
+    //console.log(`This is Cart before: ${Cart}`);
     setCart([]);
-    console.log(`This is Cart after: ${Cart}`);
-    console.log(formData);
+    setCheckout(true);
+    return (
+      <>
+        <div>
+          {console.log(" im in return")}
+          <h1>
+            Thank you for placing your order! Your cart is now being cleared
+          </h1>
+          ;
+        </div>
+      </>
+    );
+    //console.log(`This is Cart after: ${Cart}`);
+    //console.log(formData);
   };
 
   return (
-    <div className="checkout-page">
-      <form onSubmit={handleSubmit}>
-        <input
-          id="fname"
-          type="text"
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleChange}
-          placeholder="First Name"
-          required
-        />
+    <div>
+      {checkout ? (
+        <div className="order">
+          <center>
+            <h2>Your order has be placed. </h2>
+            <h1 className="thanks">Thank you for your purchase!</h1>
+          </center>
+        </div>
+      ) : (
+        <div className="checkout-page">
+          <form onSubmit={handleSubmit}>
+            <input
+              id="fname"
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              placeholder="First Name"
+              required
+            />
 
-        <input
-          id="lname"
-          type="text"
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleChange}
-          placeholder="Last Name"
-          required
-        />
+            <input
+              id="lname"
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              placeholder="Last Name"
+              required
+            />
 
-        <input
-          id="Zp"
-          type="text"
-          name="zip"
-          value={formData.zip}
-          onChange={handleChange}
-          placeholder="Zip Code"
-          required
-        />
+            <input
+              id="Zp"
+              type="text"
+              name="zip"
+              value={formData.zip}
+              onChange={handleChange}
+              placeholder="Zip Code"
+              required
+            />
 
-        <input
-          id="Email"
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="email"
-          required
-        />
+            <input
+              id="Email"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="email"
+              required
+            />
 
-        <input
-          id="Adsress"
-          type="text"
-          name="address"
-          value={formData.address}
-          onChange={handleChange}
-          placeholder="address"
-          required
-        />
+            <input
+              id="Adsress"
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              placeholder="address"
+              required
+            />
 
-        <input
-          id="Country"
-          type="text"
-          name="country"
-          value={formData.country}
-          onChange={handleChange}
-          placeholder="Country"
-          required
-        />
+            <input
+              id="Country"
+              type="text"
+              name="country"
+              value={formData.country}
+              onChange={handleChange}
+              placeholder="Country"
+              required
+            />
 
-        <button type="submit" onClick={handleSubmit}>
-          {" "}
-          Place Order
-        </button>
-      </form>
+            <button type="submit" onClick={handleSubmit}>
+              {" "}
+              Place Order
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };
