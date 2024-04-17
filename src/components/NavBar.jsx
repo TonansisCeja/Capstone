@@ -15,7 +15,7 @@ const NavBar = ({ token, setToken }) => {
   };
 
   const handleCheckout = () => {
-    navigate("/CheckoutPage");
+    navigate("/checkoutPage");
   };
 
   return (

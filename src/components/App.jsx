@@ -8,6 +8,7 @@ import SingleProduct from "./SingleProduct";
 import CheckoutPage from "./CheckoutPage";
 import Cart from "./Cart";
 import Categories from "./Categories";
+import OrderPlaced from "./OrderPlaced";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -102,7 +103,7 @@ const App = () => {
         />
 
         <Route
-          path="/CheckoutPage"
+          path="/checkoutPage"
           element={<CheckoutPage setCart={setCart} />}
         />
         <Route
@@ -111,6 +112,7 @@ const App = () => {
             <Categories products={products} setCart={setCart} cart={cart} />
           }
         />
+        <Route path="/orderPlaced" element={<OrderPlaced />} />
       </Routes>
     </div>
   );
